@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customer_discount_code_customer_discount_code,customer_discount_code.customer_discount_code,model_res_partner,Advanced_Sale_Group,1,1,1,1
+access_customer_discount_code_customer_discount_code2,customer_discount_code.customer_discount_code2,model_sale_order,Advanced_Sale_Group,1,1,1,1
+access_customer_discount_code_customer_discount_code4,customer_discount_code.customer_discount_code4,model_order_discount_wizard,Advanced_Sale_Group,1,1,1,1
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="customer_discount_codee" model="ir.ui.view">
+            <field name="name">###customer.discount.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='vat']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="customer_discount_code" groups="customer_discount_code.Advanced_Sale_Group"/>
+                    <field name="discount"/>
+                </xpath>
+            </field>
+        </record>
+        <!--tree-->
+        <record model="ir.ui.view" id="customer_discount_tree">
+            <field name="name">###customer.discount.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="customer_discount_code" optional="hide"/>
+                    <field name="discount" optional="hide"/>
+                </field>
+            </field>
+        </record>
+        <!--fillter-->
+        <record id="customer_discount_valid" model="ir.ui.view">
+            <field name="name">###customer.discount.valid</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='inactive']" position="before">
+                    <filter string="Customer Valid" name="customer_check" domain="[('customer_check','=','True')]"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
